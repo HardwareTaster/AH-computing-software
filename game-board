@@ -9,7 +9,7 @@ class square():
 
 def displayBoard(gameboard):
     for i in range(len(gameboard)):
-        print(str(gameboard[i].position) + ', ')
+        print(str(gameboard[i].position) + ', ',end="")
     print()
 
 def initPosition(gameboard):
@@ -22,18 +22,16 @@ def initPosition(gameboard):
 
 def diceroll(gameboard):
 
-    roll = random.randint(1,6)
-
-    for i in range(len(gameboard)):
+    for i in range(len(gameboard)): 
+            roll = random.randint(1,6)        
             if gameboard[i].player == "red" and gameboard[i].position<44:
                 gameboard[i+roll].player = "red"
                 gameboard[i].player = ""
-                break
-
             elif gameboard[i].player == "red"and gameboard[i].position + roll>50:
                 print("roll the exact number to land on 50 to win")
-            else:
+            elif gameboard[i].player == "red"and gameboard[i].position + roll==50:
                 print("you win")
+            
     return gameboard 
 # initialisation
 
@@ -44,4 +42,4 @@ displayBoard(gameboard)
 gameboard = initPosition(gameboard) # task 2
 for i in range(50):
     gameboard = diceroll(gameboard)
-displayBoard(gameboard)
+    displayBoard(gameboard)
