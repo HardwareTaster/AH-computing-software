@@ -1,0 +1,47 @@
+from dataclasses import dataclass
+from random import randint
+import random
+@dataclass
+class square():
+    position : int = 0
+    player : str = ''
+    pointer : int = 0
+
+def displayBoard(gameboard):
+    for i in range(len(gameboard)):
+        print(str(gameboard[i].position) + ', ')
+    print()
+
+def initPosition(gameboard):
+    pointers = {5: 3, 12: -2, 16: 4, 23: -3, 27: -2,
+                32: 5, 36: -4, 45: 3, 48: -2}
+    for i in range(len(gameboard)):
+        gameboard[i].position = i
+        gameboard[i].pointer = pointers.get(i, 0)
+    return gameboard
+
+def diceroll(gameboard):
+
+    roll = random.randint(1,6)
+
+    for i in range(len(gameboard)):
+            if gameboard[i].player == "red" and gameboard[i].position<44:
+                gameboard[i+roll].player = "red"
+                gameboard[i].player = ""
+                break
+
+            elif gameboard[i].player == "red"and gameboard[i].position + roll>50:
+                print("roll the exact number to land on 50 to win")
+            else:
+                print("you win")
+    return gameboard 
+# initialisation
+
+gameboard = [square() for i in range(50)]
+gameboard[1].player = "red"
+
+displayBoard(gameboard)
+gameboard = initPosition(gameboard) # task 2
+for i in range(50):
+    gameboard = diceroll(gameboard)
+displayBoard(gameboard)
