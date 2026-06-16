@@ -43,7 +43,6 @@ def initsize(cards):
 
 def sort_cards(cards):
     for i in range(1, len(cards)):
-        i
         while i > 0 and cards[i].size < cards[i-1].size:
             cards[i], cards[i-1] = cards[i-1], cards[i]
             i -= 1
