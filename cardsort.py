@@ -42,10 +42,23 @@ def initsize(cards):
         card.size = card.value + (suits.index(card.suit)+1)*0.1
 
 def sort_cards(cards):
+    swapcounter = 0
+    noswapcounter= 0
     for i in range(1, len(cards)):
-        while i > 0 and cards[i].size < cards[i-1].size:
-            cards[i], cards[i-1] = cards[i-1], cards[i]
-            i -= 1
+        print (cards[i].size, cards[i-1].size)
+        if i > 0 and cards[i].size < cards[i-1].size:
+            while i > 0 and cards[i].size < cards[i-1].size:
+                cards[i], cards[i-1] = cards[i-1], cards[i]
+                i -= 1
+                print(" ")
+                display_cards (cards)
+                swapcounter+=1
+        else :
+            print("no swap")
+            noswapcounter+=1
+            
+    print("A card was swapped",swapcounter, "times")
+    print("A card did not have to be swapped",noswapcounter, "times")
     return cards
 
 
@@ -58,4 +71,5 @@ display_cards(cards)
 initsize(cards)
 print (cards)
 cards = sort_cards(cards)
+print("final sorted pile:")
 display_cards(cards)
