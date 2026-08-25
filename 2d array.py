@@ -132,4 +132,4 @@ for r in range(5):
 			min =  marks[r][c]
 			low_student = students[r]
 			test = c+1
-print ("the highest mark was ",min, "attained by", low_student, "on test", test)
+print ("the lowest mark was ",min, "attained by", low_student, "on test", test)
