@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Table Structure</title>
+    <style>
+        table {
+            width: 830px;
+            height: 520px;
+            border: 2px solid white;
+            border-collapse: collapse;
+            background-color: white;
+        }
+
+        td {
+            border: 1px solid white;
+        }
+
+        .red    { background-color: red; width: 18%; }
+        .green  { background-color: green; }
+        .blue   { background-color: blue; }
+        .purple { background-color: purple; }
+        .white  { background-color: white; }
+
+        .tall  { height: 22%; }
+        .short { height: 11%; }
+    </style>
+</head>
+<body>
+
+<table>
+    <!-- Row 1: left red spans all 5 rows, right red does too -->
+    <tr class="tall">
+        <td class="red" rowspan="5"></td>
+        <td class="white" colspan="2"></td>
+        <td class="green" colspan="3"></td>
+        <td class="white" colspan="2"></td>
+        <td class="red" rowspan="5"></td>
+    </tr>
+
+    <!-- Row 2: blue bar across the 7 middle columns -->
+    <tr class="tall">
+        <td class="blue" colspan="7"></td>
+    </tr>
+
+    <!-- Row 3: the 7 small cells -->
+    <tr class="short">
+        <td class="white"></td>
+        <td class="purple"></td>
+        <td class="white"></td>
+        <td class="purple"></td>
+        <td class="white"></td>
+        <td class="purple"></td>
+        <td class="white"></td>
+    </tr>
+
+    <!-- Row 4: green bar -->
+    <tr class="tall">
+        <td class="green" colspan="7"></td>
+    </tr>
+
+    <!-- Row 5: purple bar -->
+    <tr class="tall">
+        <td class="purple" colspan="7"></td>
+    </tr>
+</table>
+
+</body>
+</html>
